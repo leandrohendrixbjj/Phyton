@@ -1,0 +1,4 @@
+Despacho Estático vs. Dinâmico (Dispatch): Como a linguagem decide qual função chamar em tempo de execução (polimorfismo)? 
+É resolvido em tempo de compilação (gerenciamento de tipos estáticos/templates) ou via tabela de ponteiros de métodos (vtable) 
+em tempo de execução?Metaprogramação e Macros: A linguagem permite inspecionar ou modificar o próprio código durante a 
+compilação ou execução (Reflection, Macros)?

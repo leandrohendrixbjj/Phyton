@@ -1,0 +1,10 @@
+Como a arquitetura da linguagem lida com múltiplos fluxos de execução ao mesmo tempo?
+
+Threads do Sistema Operacional vs. Green Threads: A linguagem gerencia suas próprias threads leves em nível de aplicação 
+(como as Goroutines em Go ou processos em Erlang) ou mapeia diretamente para as threads do SO?
+
+Modelo de Atores vs. Memória Compartilhada: O estado é compartilhado entre threads (exigindo locks e mutexes) ou 
+isolado através de mensagens (Actor Model)?
+
+Assincronicidade: O suporte a async/await é nativo da linguagem (integrado ao compilador/runtime) ou 
+baseado em bibliotecas de terceiros?

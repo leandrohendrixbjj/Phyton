@@ -1,0 +1,10 @@
+Entender como o código-fonte se transforma em instruções executáveis pelo computador define a base de performance da linguagem.
+
+Compilação Antecipada (AOT): O código é traduzido diretamente para código de máquina antes de rodar (ex: C, C++, Rust). 
+Foco em velocidade máxima e controle de hardware.
+
+Compilação Just-In-Time (JIT) / Máquinas Virtuais: O código roda em uma máquina virtual (como a JVM no Java ou o CLR no C#) e 
+é otimizado em tempo de execução com base no comportamento real.
+
+Interpretação Dinâmica: O código é lido e executado linha a linha ou pré-compilado embytecode simples (ex: Python, JavaScript), 
+priorizando flexibilidade e velocidade de desenvolvimento.

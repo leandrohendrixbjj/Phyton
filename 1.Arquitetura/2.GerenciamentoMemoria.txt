@@ -1,0 +1,9 @@
+Saber onde e como a memória é alocada e limpa evita vazamentos (memory leaks) e problemas de concorrência.
+
+Garbage Collection (GC): A linguagem possui um coletor automático que varre e limpa a memória periodicamente (ex: Java, C#, Go). 
+Quais são as estratégias do GC (geracional, stop-the-world)?
+
+Gerenciamento Manual: Você precisa alocar e liberar explicitamente (ex: malloc e free em C).
+
+Sistema de Posse (Ownership / Borrowing): O compilador gerencia o ciclo de vida da memória em tempo de compilação sem precisar 
+de um GC (ex: Rust).
