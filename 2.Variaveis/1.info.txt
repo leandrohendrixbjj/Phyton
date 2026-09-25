@@ -1,0 +1,13 @@
+1. Regras importantes, para nomear variáveis em Python
+
+  - Os nomes das variáveis só podem começar com uma letra ou um underscore (_), não com um número.
+  - Os nomes das variáveis só podem conter caracteres alfanuméricos (a-z, A-Z, 0-9) e underscores (_).
+  - Os nomes das variáveis são sensíveis a maiúsculas e minúsculas: age, Age e AGE são todos considerados únicos.
+  - Os nomes das variáveis não podem ser palavras-chave reservadas do Python, como if, class ou def.
+
+2. PEP 8, recomenda uma convenção bem clara para nomes em Python.
+
+  - Variáveis, Métodos e funções → snake_case
+  - Constantes → UPPER_CASE
+  - Classes → PascalCase
+  - Variáveis "internas" → 
