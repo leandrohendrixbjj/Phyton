@@ -1,9 +1,68 @@
-Saber onde e como a memória é alocada e limpa evita vazamentos (memory leaks) e problemas de concorrência.
+1. Onde a memória vive
 
-Garbage Collection (GC): A linguagem possui um coletor automático que varre e limpa a memória periodicamente (ex: Java, C#, Go). 
-Quais são as estratégias do GC (geracional, stop-the-world)?
+  - Stack (Pilha): armazena variáveis locais do escopo de execução, ponteiros/referências para os objetos e o
+    contexto de chamadas de funções. É extremamente rápida e é limpa automaticamente assim que a função termina.
 
-Gerenciamento Manual: Você precisa alocar e liberar explicitamente (ex: malloc e free em C).
+  - Heap Privado (Monte): é onde residem todos os objetos e estruturas de dados (inteiros, strings, listas,
+    dicionários, instâncias de classes). O gerenciador de memória do Python (Python Memory Manager) controla essa área.
 
-Sistema de Posse (Ownership / Borrowing): O compilador gerencia o ciclo de vida da memória em tempo de compilação sem precisar 
-de um GC (ex: Rust).
+
+2. Como a memória é limpa?
+
+  - Contagem de Referências: é o mecanismo primário e imediato. Cada objeto em Python possui um contador interno
+    (ob_refcnt) que rastreia quantas referências apontam para ele.
+
+  - Limpeza instantânea: assim que o contador chega a zero, o espaço de memória do objeto é desalocado imediatamente.
+
+
+3. Garbage Collector Cíclico (GC)
+
+  - O Python limpa a maioria das coisas instantaneamente quando o contador de referências chega a zero. O problema
+    é que a contagem de referências sozinha não consegue resolver referências circulares.
+
+  - Exemplo:
+
+    ```python
+    class No:
+        def __init__(self, valor):
+            self.valor = valor
+            self.vizinho = None
+
+
+    # Criando dois objetos
+    a = No(1)
+    b = No(2)
+
+    # Criando um ciclo (referência circular)
+    a.vizinho = b
+    b.vizinho = a
+
+    # Removendo os ponteiros locais
+    del a
+    del b
+    ```
+
+  - Quando você executa del a e del b, as variáveis locais deixam de existir, mas o objeto a ainda aponta para b,
+    e o objeto b ainda aponta para a.
+
+  - Sem o Garbage Collector, esses objetos ficariam presos na memória para sempre, causando um memory leak.
+
+
+4. Memory Leaks
+
+  - Caches Globais e Dicionários Crescentes: armazenar dados em variáveis globais ou dicionários estáticos sem uma
+    política de expiração.
+
+  - Listeners, Callbacks e Event Loops: registrar funções de callback em frameworks assíncronos ou sistemas de
+    eventos e esquecer de removê-las mantém o objeto chamador vivo na memória.
+
+  - Ciclos com o método __del__: em versões mais antigas do Python, classes que implementavam o destrutor __del__
+    em conjunto com ciclos de referência podiam confundir o coletor.
+
+
+5. Concorrência e Memória
+
+  - Global Interpreter Lock (GIL): protege a integridade do heap do CPython, impedindo que duas threads modifiquem
+    os contadores de referência simultaneamente.
+
+  - Multiprocessing (Processos): cada processo possui seu próprio espaço de memória independente.

@@ -1,8 +1,1 @@
-O sistema de tipos dita como a linguagem garante segurança e expressividade.
-
-Estático vs. Dinâmico: Os erros de tipo são pegos em tempo de compilação ou apenas em tempo de execução?
-
-Forte vs. Fraco: A linguagem permite coerções implícitas bizarras (como somar string com número) ou exige conversões explícitas?
-
-Nominal vs. Estrutural: A compatibilidade de tipos depende do nome explícito da classe/interface ou apenas da estrutura de 
-propriedades e métodos que ela possui?
+https://gemini.google.com/app/39eb804753f917a9
