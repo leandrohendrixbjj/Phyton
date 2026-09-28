@@ -12,7 +12,14 @@ class Restaurante:
     
     def __str__(self):
         return f'{self._nome} | {self._categoria}'
-    
+
+    """
+        Classmethod: diz que a função pode ser acessada diretamente pela classe, sem precisar de uma 
+        instância. Geralmente recebe como primeiro parâmetro a própria classe (cls), Isso permite que 
+        você acesse atributos e métodos da classe diretamente, sem precisar de uma instância.
+
+        Lembrado que existem diferenças importantes entre classmethod e staticmethod
+    """           
     @classmethod
     def listar_restaurantes(cls):
         print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(25)} |{'Status'}')
