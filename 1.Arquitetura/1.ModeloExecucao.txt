@@ -12,9 +12,11 @@
     print("Hello, World!")
     ```
 
-  - O CPython compila esse código para bytecode. (Etapa de compilação)
-  - A Python VM do CPython executa esse bytecode. (Etapa de interpretação)
-  - O CPython, que é um programa nativo, realiza as operações necessárias para que a CPU execute o trabalho.
+  1. Código-fonte (.py) $\rightarrow$ Bytecode (.pyc): Ocorre uma fase de compilação pura. O código legível por humanos é 
+     transformado em instruções de baixo nível (bytecode) otimizadas para uma máquina virtual.
+
+  2. Bytecode $\rightarrow$ Linguagem de Máquina: A PVM (Python Virtual Machine) lê esse bytecode e o executa instrução por 
+     instrução, traduzindo-o para código de máquina em tempo de execução.   
 
 
 3. Então Python é compilado ou interpretado?
@@ -22,4 +24,5 @@
   - Python, especificamente CPython, utiliza compilação + interpretação.
   - O código é compilado para bytecode e, no CPython, esse bytecode é executado pela Python Virtual Machine.
 
-  - Linguagens 100% compiladas: o código-fonte é compilado antecipadamente, diretamente para código de máquina, que depois é executado pela CPU.
+  - Linguagens 100% compiladas: o código-fonte é compilado antecipadamente, diretamente para código de máquina, que depois é 
+    executado pela CPU.
