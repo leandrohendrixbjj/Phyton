@@ -1,0 +1,77 @@
+1. Por padrão, Python é síncrono:
+
+  - Quando você escreve:
+
+    ```python
+    import time
+
+
+    def tarefa(nome, tempo=2):
+        print(f"Iniciando {nome}")
+        time.sleep(tempo)
+        print(f"Terminando {nome}")
+
+
+    def main():
+        tarefa("A", 2)
+        tarefa("B", 2)
+        tarefa("C", 2)
+
+
+    main()
+    ```
+
+  - A execução acontece em sequência:
+
+    ```text
+    Iniciando A
+        ↓
+    espera 2s
+        ↓
+    Terminando A
+        ↓
+    Iniciando B
+        ↓
+    espera 2s
+        ↓
+    Terminando B
+        ↓
+    Iniciando C
+        ↓
+    espera 2s
+        ↓
+    Terminando C
+    ```
+
+2. Mas Python também suporta programação assíncrona:
+
+  - O await permite que o programa ceda o controle enquanto espera uma operação de I/O.
+
+    ```python
+    import asyncio
+
+
+    async def tarefa(nome, tempo=2):
+        print(f"Iniciando {nome}")
+        await asyncio.sleep(tempo)
+        print(f"Terminando {nome}")
+
+
+    async def main():
+        await asyncio.gather(
+            tarefa("A", 5),
+            tarefa("B", 2),
+        )
+
+
+    asyncio.run(main())
+    ```
+
+  - Enquanto uma tarefa espera, a outra pode seguir:
+
+    ```text
+    Tarefa A ── espera 5s ─────────── Terminando A
+    Tarefa B ── espera 2s ── Terminando B
+               ↑
+         B termina enquanto A ainda espera
+    ```
