@@ -26,6 +26,12 @@ class Restaurante:
         for restaurante in cls.restaurantes:
             print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {str(restaurante.media_avaliacoes).ljust(25)} |{restaurante.ativo}')
 
+    """
+      Property: Método pode ser acessado como um atributo, mas na verdade é um método. 
+         - Ele NÃO pode ser invocado sem uma instância
+         - É principalmente uma forma de expor um método através da sintaxe de atributo.         
+         - Você não precisa ter um atributo declarado no __init__ para usar @property.'
+    """
     @property
     def ativo(self):
         return 'Ativo' if self._ativo else 'Inativo'
