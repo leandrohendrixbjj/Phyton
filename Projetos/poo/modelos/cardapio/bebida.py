@@ -5,12 +5,6 @@ class Bebida(ItemCardapio)  :
         super().__init__(nome, preco)
         self._volume = volume
 
-    @property
-    def volume(self):
-        return self._volume
-
-    @volume.setter
-    def volume(self, volume):
-        self._volume = volume
-
+    def __str__(self):
+        return f"Bebida: {self._nome} - R$ {self._preco} - Volume: {self._volume}ml"
     

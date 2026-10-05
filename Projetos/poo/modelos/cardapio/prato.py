@@ -5,10 +5,5 @@ class Prato(ItemCardapio):
         super().__init__(nome, preco)
         self._descricao = descricao
 
-    @property
-    def descricao(self):
-        return self._descricao
-
-    @descricao.setter
-    def descricao(self, descricao):
-        self._descricao = descricao
+    def __str__(self):
+        return f"Prato: {self._nome} - R$ {self._preco} - Descrição: {self._descricao}"
