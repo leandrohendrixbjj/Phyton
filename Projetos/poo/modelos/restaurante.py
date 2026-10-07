@@ -2,12 +2,13 @@ from modelos.avaliacao import Avaliacao
 
 class Restaurante:
     restaurantes = []
-
+    
     def __init__(self, nome, categoria):
         self._nome = nome.title()
         self._categoria = categoria.upper()
         self._ativo = False
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
     
     def __str__(self):
@@ -34,21 +35,18 @@ class Restaurante:
     """
     @property
     def ativo(self):
-        return 'Ativo' if self._ativo else 'Inativo'
+        return 'Ativo' if self._ativo else 'Inativo'    
     
-    def alternar_estado(self):
-        self._ativo = not self._ativo
+    def adicionar_produto_ao_cardapio(self, produto):
+        self._cardapio.append(produto)
 
-    def receber_avaliacao(self, cliente, nota):
-        if 0 < nota <= 5: 
-            avaliacao = Avaliacao(cliente, nota)
-            self._avaliacao.append(avaliacao)
-
-    @property
-    def media_avaliacoes(self):
-        if not self._avaliacao:
-            return '-'
-        soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
-        quantidade_de_notas = len(self._avaliacao)
-        media = round(soma_das_notas / quantidade_de_notas, 1)
-        return media
+    def get_cardapio(self):
+        print(f'{'Nome do prato'.ljust(25)} | {'Preço'.ljust(25)} | {'Descrição'.ljust(25)}')
+        for produto in self._cardapio:  # produto é um objeto da classe Prato ou Bebida
+            descricao = produto._descricao if hasattr(produto, '_descricao') else produto._volume
+            print(
+                f'{produto._nome.ljust(25)} | '
+                f'{str(produto._preco).ljust(25)} | '
+                f'{str(descricao).ljust(25)}'                 
+            )
+        return '\n'.join([produto._nome for produto in self._cardapio]) # retorna uma string com os nomes dos produtos  
