@@ -1,6 +1,7 @@
 """
-    index: retorna o índice da primeira ocorrência de um substring em uma string. Se o substring não for encontrado, retorna um erro.
-"""
+ index: retorna o índice da primeira ocorrência de um substring em uma string. 
+ Se o substring não for encontrado, retorna um erro.
+ """
 
 my_str = 'Hello world'
 
