@@ -1,4 +1,5 @@
 from modelos.avaliacao import Avaliacao
+from modelos.cardapio.item_cardapio import ItemCardapio
 
 class Restaurante:
     restaurantes = []
@@ -38,9 +39,12 @@ class Restaurante:
         return 'Ativo' if self._ativo else 'Inativo'    
     
     def adicionar_produto_ao_cardapio(self, produto):
+        if not isinstance(produto, ItemCardapio):
+            raise ValueError('Produto deve ser uma instância de ItemCardapio')
         self._cardapio.append(produto)
 
     def get_cardapio(self):
+        print(f'Cardápio do Restaurante: {self._nome}')
         print(f'{'Nome do prato'.ljust(25)} | {'Preço'.ljust(25)} | {'Descrição'.ljust(25)}')
         for produto in self._cardapio:  # produto é um objeto da classe Prato ou Bebida
             descricao = produto._descricao if hasattr(produto, '_descricao') else produto._volume
