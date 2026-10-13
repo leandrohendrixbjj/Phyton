@@ -1,0 +1,98 @@
+🔗 Vídeo complementar:  
+https://www.youtube.com/watch?v=pxfZTAJDipY
+
+─────────────────────────────────────────────
+🌟 Introdução à Compilação e Execução Python 🌟
+─────────────────────────────────────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ O que é CPython?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• **Python** é a linguagem de programação.  
+• **CPython** é o principal interpretador que executa programas Python (escrito em C).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2️⃣ Como funciona o fluxo de execução?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Você escreve um código como:
+
+```python
+print("Hello, World!")
+```
+
+🛠️ O que acontece nos bastidores?
+1. **Compilação**:  
+   O código fonte é convertido para *bytecode*, um formato intermediário.
+2. **Execução**:  
+   A *Python Virtual Machine* (PVM) interpreta esse bytecode e executa cada instrução em tempo real.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3️⃣ Python é compilado ou interpretado?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• O Python (CPython) **combina** compilação *e* interpretação.
+
+✔️ *Compilação*:  
+O código é transformado em bytecode.
+
+✔️ *Interpretação*:  
+O bytecode é executado linha a linha pela máquina virtual.
+
+⚡ *Comparação*  
+- **Linguagens compiladas:** compilam direto para código de máquina antes da execução (ex: C, Go).
+- **Python:** compila para bytecode, depois interpreta o bytecode na PVM.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4️⃣ Fluxo de compilação Python
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+Código-fonte
+    │
+    ▼
+Tokenizer / Lexer    ← quebra o texto em tokens
+    │
+    ▼
+Parser               ← verifica a sintaxe/estrutura
+    │
+    ▼
+AST                  ← constrói a árvore sintática
+    │
+    ▼
+Compilador           ← gera o bytecode (.pyc/memória)
+    │
+    ▼
+Bytecode (.pyc/ RAM)
+    │
+    ▼
+PVM (Python Virtual Machine)
+    │
+    ▼
+Execução
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5️⃣ Tokenizer (Tokenizador)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Primeira etapa do processamento.  
+• Separa o código-fonte em pequenas partes chamadas **tokens**.  
+• *Não* é a compilação toda, apenas o início desse processo.
+• Dica:  
+  No terminal, execute para visualizar:
+  ```bash
+  py -m tokenize index.py
+  ```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6️⃣ Parsing (Análise Sintática)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Depois da tokenização, o *parser* analisa se a sequência de tokens faz sentido na gramática da linguagem.  
+• O Python constrói uma estrutura sintática chamada **AST** (Abstract Syntax Tree) para representar o código internamente.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7️⃣ AST (Árvore Sintática Abstrata)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Representa a estrutura semântica e sintática do programa
+• IA pode analisar a AST de um código Python em vez de analisar somente o código-fonte escrito por um humano. Inclusive, combinar 
+  as duas abordagens pode produzir análises mais precisas, principalmente em ferramentas de revisão de código, análise de segurança 
+  e refatoração automatizada.
+
