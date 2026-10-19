@@ -16,3 +16,11 @@ print(my_str)  # 'Hello python'
 # Strings são imutáveis, portanto, não podemos alterar o conteúdo de uma string.
 my_str[0] = 'J'  # TypeError: 'str' object does not support item assignment
 
+
+# Slicing
+print(my_str[1:4]) # ell
+
+print(my_str[4:]) # o World
+
+print(my_str[:]) # Hello World
+
