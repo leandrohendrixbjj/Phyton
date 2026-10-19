@@ -10,21 +10,7 @@ https://www.youtube.com/watch?v=pxfZTAJDipY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • **Python** é a linguagem de programação.  
 • **CPython** é o principal interpretador que executa programas Python (escrito em C).
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-2️⃣ Como funciona o fluxo de execução?
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Você escreve um código como:
-
-```python
-print("Hello, World!")
-```
-
-🛠️ O que acontece nos bastidores?
-1. **Compilação**:  
-   O código fonte é convertido para *bytecode*, um formato intermediário.
-2. **Execução**:  
-   A *Python Virtual Machine* (PVM) interpreta esse bytecode e executa cada instrução em tempo real.
+• **Execução** Python Virtual Machine* (PVM) interpreta esse bytecode e executa cada instrução em tempo real.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3️⃣ Python é compilado ou interpretado?
@@ -60,7 +46,7 @@ AST                  ← constrói a árvore sintática
 Compilador           ← gera o bytecode (.pyc/memória)
     │
     ▼
-Bytecode (.pyc/ RAM)
+Bytecode / IL (.pyc/ RAM)
     │
     ▼
 PVM (Python Virtual Machine)
