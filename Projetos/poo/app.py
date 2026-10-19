@@ -12,6 +12,9 @@ restaurante.adicionar_produto_ao_cardapio(bebida)
 
 def main():
     restaurante.get_cardapio()
-
+    
+    if (restaurante.ativo == 'Ativo'):
+        Restaurante.listar_restaurantes()
+    
 if __name__ == '__main__':
     main()  
