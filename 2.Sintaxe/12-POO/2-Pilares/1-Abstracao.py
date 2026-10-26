@@ -1,47 +1,29 @@
 """
   O que é Abstração?
 
-  Abstração é um dos pilares da Programação Orientada a Objetos (POO) que permite simplificar a 
-  complexidade de um sistema, focando apenas nos aspectos essenciais e ocultando os detalhes 
-  desnecessários.
+  Abstração é um dos pilares da Programação Orientada a Objetos (POO). Ela consiste em esconder os detalhes internos de implementação 
+  e expor apenas as operações necessárias para utilizar um objeto.
 
-  Você não precisa saber como um carro funciona internamente para usá-lo. O que importa é: 
-  volante, pedais, câmbio... Isso é abstração!
-
-  Na classe abaixo foi abstraido os detalhes mecânicos e eletrônicos de ligar e desligar um carro.
+  Exemplo: ao sacar dinheiro em um caixa eletrônico, você informa o valor e solicita o saque. Não precisa conhecer todos os processos
+  internos para realizar a operação.
 
 """
 
-class Carro:
-    def __init__(self, modelo: str):
-        self.modelo = modelo
-        self.__ligado = False
-        self.__velocidade = 0
-
-    def ligar(self):
-        if not self.__ligado:
-            self.__ligado = True
-            print(f"{self.modelo} ligado.")
-        else:
-            print(f"{self.modelo} já está ligado.")
+class CaixaEletronico:
+  def __init__(self, saldo: float):
+    self.__saldo = saldo
     
-    def desligar(self):
-        if self.__ligado and self.__velocidade == 0:
-            self.__ligado = False
-            print(f"{self.modelo} desligado.")
-        elif self.__velocidade > 0:
-            print("Pare o carro antes de desligar.")
-        else:
-            print(f"{self.modelo} já está desligado.")
+  def sacar(self, valor: float):
 
-    def status(self):
-        print(f"Modelo: {self.modelo}")
-        print(f"Ligado: {self.__ligado}")        
+    if valor <= 0:
+      print("Valor inválido.")
+    elif valor > self.__saldo:
+      print("Saldo insuficiente.")
+    else:
+      self.__saldo -= valor
+      print("Saque realizado com sucesso.")
 
-carro = Carro("Fusca")
-carro.ligar()           
-carro.status()          
-carro.desligar()        
+caixa = CaixaEletronico(1000)
 
-
-
+caixa.sacar(200)
+caixa.consultar_saldo()
